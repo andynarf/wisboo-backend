@@ -12,12 +12,39 @@
 
 ActiveRecord::Schema.define(version: 2020_11_01_134638) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "text"
     t.integer "video_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["video_id"], name: "index_comments_on_video_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "house_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["house_id"], name: "index_favorites_on_house_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "videos", force: :cascade do |t|
@@ -29,4 +56,6 @@ ActiveRecord::Schema.define(version: 2020_11_01_134638) do
   end
 
   add_foreign_key "comments", "videos"
+  add_foreign_key "favorites", "houses"
+  add_foreign_key "favorites", "users"
 end
