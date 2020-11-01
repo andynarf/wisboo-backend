@@ -44,7 +44,7 @@ RSpec.describe 'Videos API', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find video/)
+        expect(response.body).to match(/Couldn't find Video with 'id'=100/)
       end
     end
   end
@@ -75,7 +75,7 @@ RSpec.describe 'Videos API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: color can't be blank/)
+          .to match(/Validation failed: Videoid can't be blank, Color can't be blank/)
       end
     end
   end
