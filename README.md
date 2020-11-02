@@ -31,7 +31,7 @@ This projects uses `ruby 2.7.0` you can install ruby using [RVM](https://rvm.io/
 
 ### Database
 
-To run this project locally you should provide the local PostgreSQL `role` and `password` you can check [this guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) for mor info.
+To run this project locally you should provide the local PostgreSQL `role` and `password` you can check [this guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) for more info.
 
 #### Install PostgreSQL
 
@@ -40,8 +40,7 @@ Install PostgreSQL and it's required development libraries.
 `sudo apt install postgresql postgresql-contrib libpq-dev`
 
 #### Creating a Role
-
-The `role` as it's called on Postgre it's basically your username, using this role rails will create and communicate with the Database.
+The `role` as it's called on Postgre it's basically your username, using this role rails will create and communicate with the database.
 
 `sudo -u postgres createuser -s YOUR_DB_ROLE_NAME -P`
 
